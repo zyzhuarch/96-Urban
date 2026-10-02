@@ -391,6 +391,7 @@
     const style = await response.json();
 
     style.sources = {
+      ...style.sources,
       openmaptiles: {
        type: 'vector',
        url: 'https://tiles.openfreemap.org/planet'
