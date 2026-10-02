@@ -1,7 +1,5 @@
 # 用九六都市更新｜Concept Prototype
 
-這是依 `../DESIGN_BRIEF.md` 製作的第一版單頁概念網站；它不會修改舊網站檔案。
-
 ## 檔案
 
 - `index.html`：單頁結構
