@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="用九六都市更新概念網站：讓生活重新裝幀。">
+  <meta name="theme-color" content="#E2EAD3">
+  <title>用九六都市更新有限公司</title>
+  <link rel="icon" href="assets/96.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.19.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+  <div class="loading-screen" id="loadingScreen" role="status" aria-live="polite" aria-label="用九六都市更新網站載入中">
+    <div class="loading-content" id="loadingContent">
+      <div class="loading-mark" aria-hidden="true">
+        <svg class="loading-mark-piece mark-nine" viewBox="0 0 210 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#D4D4D5" d="M52,189.4l60.2-80.6c18.5-24.6,16.9-43.7,16.9-43.7c0-6.4-0.7-11.4-1.6-15.3c-0.1-0.3-0.3-0.7-0.4-1c-1-3.3-2.2-6.6-4-9.6l0,0C111.6,19.2,94.2,7.8,71,6.1C55.6,5.1,41.4,9.2,29.1,19C14.8,30.5,6.5,45.3,5.7,63.8C5.1,78.6,9.3,92,19.2,103.3c11.7,13.6,26.4,20.7,44.5,19.9c0.4,0,0.8,0,1.1,0c-0.2,0.4-0.3,0.8-0.6,1.1c-4,5.4-8,10.7-12.1,16.1c-8.7,11.6-17.5,23.2-26.2,34.9c-0.6,0.8-1,1.6,0,2.4c7.1,5.2,14.3,10.5,21.4,15.7c0.8,0.6,1.4,0.4,2-0.4L52,189.4z M67.7,33.8c17.4,0,31.4,14,31.4,31.4c0,17.6-14,31.3-31.9,31.3c-17,0-31-14.2-31-31.3C36.1,47.8,50.3,33.7,67.7,33.8z"/>
+          <path fill="#156082" d="M36.1,65.1c0-17.3,14-31.3,31.3-31.3c17.6,0,31.4,14.1,31.4,32c0,17.2-14.3,30.9-32,30.9C50,96.6,36.1,82.3,36.1,65.1L36.1,65.1z"/>
+        </svg>
+        <svg class="loading-mark-piece mark-six" viewBox="0 0 210 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#D4D4D5" d="M158,10.6L97.8,91.3c-18.5,24.6-16.9,43.7-16.9,43.7c0,6.4,0.7,11.4,1.6,15.3c0.1,0.3,0.3,0.7,0.4,1c1,3.3,2.2,6.6,4,9.6l0,0c11.7,20.1,29,31.5,52.2,33.1c15.4,1.1,29.6-3,41.9-12.9c14.3-11.5,22.7-26.2,23.4-44.8c0.6-14.8-3.6-28.2-13.4-39.5c-11.7-13.6-26.4-20.7-44.5-19.9c-0.4,0-0.8,0-1.1,0c0.2-0.4,0.3-0.8,0.6-1.1c4-5.4,8-10.7,12.1-16.1c8.7-11.6,17.5-23.2,26.2-34.9c0.6-0.8,1-1.6,0-2.4c-7.1-5.2-14.3-10.5-21.4-15.7c-0.8-0.6-1.4-0.4-2,0.4L158,10.6z M142.3,166.2c-17.4,0-31.4-14-31.4-31.4c0-17.6,14-31.3,31.9-31.3c17,0,31,14.2,31,31.3C173.9,152.2,159.7,166.3,142.3,166.2z"/>
+          <path fill="#929000" d="M111.1,134.8c0-17.6,14-31.3,31.9-31.3c17,0,31,14.2,31,31.3c0,17.4-14.1,31.4-31.5,31.4C125.1,166.2,111.1,152.2,111.1,134.8L111.1,134.8z"/>
+        </svg>
+      </div>
+      <div class="loading-wordmark" id="loadingWordmark">
+        <strong>用九六都市更新有限公司</strong>
+        <span>96 Urban Regeneration Ltd.</span>
+      </div>
+      <div class="loading-progress" aria-hidden="true">
+        <span class="loading-percent" id="loadingPercent">0%</span>
+
+      </div>
+      <p class="loading-caption" id="loadingCaption">正在翻開城市的新篇</p>
+    </div>
+  </div>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="用九六都市更新首頁">
+      <img src="assets/96.svg" alt="用九六都市更新標誌" width="36" height="35">
+      <span class="brand-wordmark"><strong>用九六都市更新有限公司</strong><small class="brand-english">96 Urban Regeneration Ltd.</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="primaryNavigation" aria-expanded="false" aria-label="開啟導覽選單">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <nav id="primaryNavigation" aria-label="主要導覽">
+      <div class="mobile-menu-brand">
+        <strong>用九六都市更新有限公司</strong>
+        <span class="h7">96 Urban Regeneration Ltd.</span>
+      </div>
+      <a href="#story">我們相信</a>
+      <a href="#projects">基地足跡</a>
+      <a href="#contact">聯絡我們</a>
+    </nav>
+
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-copy container">
+        <p class="eyebrow"><span></span>讓生活重新裝幀</p>
+        <h1 id="hero-title">城市會更新，<br>家的故事不必歸零。</h1>
+        <p class="hero-lead">城市是一本讀不完的長篇。用九六相信，都市更新不是冰冷的拆除，而是為一段已被認真生活過的日子，寫下更安穩的下一頁。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#story">看見這段過程 <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="#projects">查看基地足跡</a>
+        </div>
+      </div>
+      <div class="hero-symbol" aria-hidden="true">
+        <span class="symbol-stroke stroke-a"></span><span class="symbol-stroke stroke-b"></span><span class="symbol-dot dot-blue"></span><span class="symbol-dot dot-green"></span>
+      </div>
+      <p class="scroll-cue" aria-hidden="true">向下捲動，閱讀一棟房子的變化 <span>↓</span></p>
+    </section>
+
+    <section class="story" id="story" data-active-stage="0" aria-labelledby="story-heading">
+      <div class="story-intro container">
+        <p class="eyebrow"><span></span>一棟房子的四次變化</p>
+        <h2 id="story-heading">不是替代生活，<br>是讓生活有更穩固的延續。</h2>
+      </div>
+
+      <div class="story-layout container">
+        <div class="story-visual" aria-hidden="true">
+          <div class="stage-count"><span id="stageCurrent">01</span><i></i><span>04</span></div>
+          <div class="building-world">
+            <div class="ground-shadow"></div>
+            <div class="city-lines lines-back"></div>
+            <div class="old-building building-layer">
+              <div class="old-roof"></div>
+              <div class="old-facade">
+                <span class="old-window w1"></span><span class="old-window w2"></span><span class="old-window w3"></span>
+                <span class="old-window w4"></span><span class="old-window w5"></span><span class="old-window w6"></span>
+                <span class="old-window w7"></span><span class="old-window w8"></span><span class="old-window w9"></span>
+              </div>
+              <div class="old-balcony"></div>
+              <div class="old-door"></div>
+            </div>
+            <svg class="blueprint building-layer" viewBox="0 0 500 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M130 500V165L190 105H348L382 154V500H130Z" />
+              <path d="M130 224H382M130 290H382M130 356H382M130 422H382M190 105V500M254 105V500M318 105V500" />
+              <path class="bp-detail" d="M92 504H420M130 540H382M108 173H402M116 154L202 72H332L405 148" />
+              <circle cx="190" cy="224" r="11"/><circle cx="254" cy="290" r="11"/><circle cx="318" cy="356" r="11"/>
+            </svg>
+            <div class="structure building-layer">
+              <span class="beam beam-top"></span><span class="beam beam-mid-one"></span><span class="beam beam-mid-two"></span><span class="beam beam-bottom"></span>
+              <span class="column column-one"></span><span class="column column-two"></span><span class="column column-three"></span><span class="column column-four"></span>
+            </div>
+            <div class="scaffold building-layer"><i></i><i></i><i></i><i></i><i></i><i></i><b></b><b></b><b></b><b></b></div>
+            <div class="new-building building-layer">
+              <div class="new-crown"></div>
+              <div class="new-facade">
+                <span class="new-window nw1"></span><span class="new-window nw2"></span><span class="new-window nw3"></span><span class="new-window nw4"></span>
+                <span class="new-window nw5"></span><span class="new-window nw6"></span><span class="new-window nw7"></span><span class="new-window nw8"></span>
+                <span class="new-window nw9"></span><span class="new-window nw10"></span><span class="new-window nw11"></span><span class="new-window nw12"></span>
+              </div>
+              <div class="new-entrance"></div>
+              <div class="plant plant-left"></div><div class="plant plant-right"></div>
+            </div>
+            <div class="city-lines lines-front"></div>
+          </div>
+          <ol class="stage-dots" aria-hidden="true"><li class="is-active"></li><li></li><li></li><li></li></ol>
+        </div>
+
+        <div class="story-track">
+          <article class="story-step" data-stage="0">
+            <p class="step-index">01 ／ 舊屋現況</p>
+            <h3>一棟房子，承載的<br>不只是坪數。</h3>
+            <p>窗邊的光、熟悉的街角，和一段被認真生活過的時間，都能被好好看待。</p>
+            <ul class="word-pair"><li>記憶</li><li>生活</li></ul>
+          </article>
+          <article class="story-step" data-stage="1">
+            <p class="step-index">02 ／ 共識與規劃</p>
+            <h3>重要的，不只是怎麼蓋，<br>而是一起怎麼決定。</h3>
+            <p>讓不同的想法被放進同一張藍圖裡，慢慢整理成能一起往前走的方向。</p>
+            <div class="word-sequence" aria-label="聽見、理解、一起決定"><span>聽見</span><i>→</i><span>理解</span><i>→</i><span>一起決定</span></div>
+          </article>
+          <article class="story-step" data-stage="2">
+            <p class="step-index">03 ／ 安全施工</p>
+            <h3>看不見的細節，<br>也能被好好交代。</h3>
+            <p>從結構到工序，讓每一步都有秩序，讓未來的日子有更穩固的基礎。</p>
+            <ul class="word-pair"><li>安全</li><li>管理</li><li>規範</li></ul>
+          </article>
+          <article class="story-step" data-stage="3">
+            <p class="step-index">04 ／ 新家入住</p>
+            <h3>未來，<br>由我們一起寫下。</h3>
+            <p>新的立面不是故事的結尾，而是讓熟悉生活能繼續發生的新開始。</p>
+            <a class="text-link" href="#projects">看看用九六的基地足跡 <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="container projects-heading">
+        <div>
+          <p class="eyebrow"><span></span>用九六的台北足跡</p>
+          <h2 id="projects-title">在熟悉的街區，<br>整理下一段生活的可能。</h2>
+        </div>
+        <p>以下為概念版展示資料。專案以區域足跡呈現，不對應精準基地或地址。</p>
+      </div>
+
+      <div class="container project-controls" aria-label="專案狀態篩選">
+        <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">全部基地</button>
+        <button type="button" class="filter-button" data-filter="integrating" aria-pressed="false">整合中</button>
+        <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">已完成</button>
+      </div>
+
+      <div class="container project-explorer">
+        <div class="footprint-map" aria-labelledby="mapTitle" aria-describedby="mapCaption">
+          <p id="mapTitle" class="sr-only">用九六台北市基地區域地圖</p>
+          <div id="projectMap" class="project-map" aria-label="台北市基地區域地圖"></div>
+          <p class="map-fallback" id="mapFallback" role="status">正在載入台北市地圖</p>
+          <p class="map-key"><span class="key-dot key-integrating"></span>整合中 <span class="key-dot key-completed"></span>已完成</p>
+          <p id="mapCaption" class="sr-only">僅呈現行政區邊界、主要道路、河流與概念基地位置，不顯示精確地址。</p>
+        </div>
+        <div class="project-list" id="projectList" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow eyebrow-light"><span></span>聯絡我們</p>
+          <h2 id="contact-title">我們不替你決定未來，<br>而是陪你一起把未來想清楚。</h2>
+          <p>若你想先聊聊，請選擇最自在的方式。這裡不急著要你做決定。</p>
+          <div class="contact-options">
+            <a href="tel:+886223460088"><small>電話聯絡</small><strong>(02) 2346-0088</strong><span>撥打電話 →</span></a>
+            <div><small>來訪地址</small><strong>台北市信義區<br>松山路465巷38號1F</strong><span>僅顯示地址</span></div>
+            <div class="line-placeholder" aria-label="LINE 官方帳號，敬請期待"><small>LINE 官方帳號</small><strong>敬請期待</strong><span>連結將於正式版啟用</span></div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <p class="form-kicker">留下想法</p>
+          <form id="contactForm" novalidate>
+            <label>稱呼<input name="name" autocomplete="name" required placeholder="怎麼稱呼您"></label>
+            <div class="form-row">
+              <label>聯絡方式<select name="contactType" aria-label="選擇聯絡方式"><option value="電話">電話</option><option value="Email">Email</option></select></label>
+              <label>聯絡資訊<input name="contactValue" required placeholder="電話或 Email"></label>
+            </div>
+            <label>所在行政區 <span>選填</span><select name="district"><option value="">請選擇</option><option>信義區</option><option>士林區</option><option>北投區</option><option>文山區</option><option>其他</option></select></label>
+            <label>想了解的內容 <span>選填</span><textarea name="message" rows="3" placeholder="簡短告訴我們您想了解的方向"></textarea></label>
+            <label class="consent"><input type="checkbox" required><span>我同意用九六僅為回覆本次詢問而使用上述資料。</span></label>
+            <button class="button button-light" type="submit">送出詢問 <span aria-hidden="true">→</span></button>
+            <p class="form-mode">概念版表單尚未連接私有後台；送出僅驗證操作流程，不會傳送或儲存資料。</p>
+            <p class="form-feedback" id="formFeedback" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><span>© 2026 用九六都市更新有限公司</span><span>概念網站・第一版</span></div></footer>
+
+  <script src="https://unpkg.com/maplibre-gl@5.19.0/dist/maplibre-gl.js" crossorigin="anonymous"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+
