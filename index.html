@@ -166,15 +166,15 @@
         <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">已完成</button>
       </div>
 
-      <div class="container project-explorer">
+      <div class="project-explorer">
         <div class="footprint-map" aria-labelledby="mapTitle" aria-describedby="mapCaption">
           <p id="mapTitle" class="sr-only">用九六台北市基地區域地圖</p>
           <div id="projectMap" class="project-map" aria-label="台北市基地區域地圖"></div>
           <p class="map-fallback" id="mapFallback" role="status">正在載入台北市地圖</p>
           <p class="map-key"><span class="key-dot key-integrating"></span>整合中 <span class="key-dot key-completed"></span>已完成</p>
           <p id="mapCaption" class="sr-only">僅呈現行政區邊界、主要道路、河流與概念基地位置，不顯示精確地址。</p>
+          <div class="project-list" id="projectList" aria-live="polite"></div>
         </div>
-        <div class="project-list" id="projectList" aria-live="polite"></div>
       </div>
     </section>
 

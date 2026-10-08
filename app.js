@@ -306,7 +306,7 @@
   function mapZoomLimits() {
     return compactMap.matches
       ? { zoom: 12.55, minZoom: 12.25, maxZoom: 12.85 }
-      : { zoom: 13, minZoom: 12.75, maxZoom: 13.18 };
+      : { zoom: 13.85, minZoom: 13.55, maxZoom: 14 };
   }
 
   function mapProjectData() {
@@ -352,8 +352,17 @@
 
   function selectProject(projectId, options = {}) {
     selectedProject = projectId;
+    let selectedCard = null;
     projectList?.querySelectorAll('[data-project-id]').forEach((item) => {
-      item.classList.toggle('is-selected', item.dataset.projectId === projectId);
+      const isSelected = item.dataset.projectId === projectId;
+      item.classList.toggle('is-selected', isSelected);
+      item.setAttribute('aria-current', String(isSelected));
+      if (isSelected) selectedCard = item;
+    });
+    selectedCard?.scrollIntoView({
+      behavior: reducedMapMotion.matches ? 'auto' : 'smooth',
+      block: 'nearest',
+      inline: 'nearest'
     });
     updateMapProjects();
     if (options.focus !== false) focusProject(projectId);
@@ -366,7 +375,7 @@
     }
 
     projectList.innerHTML = projects.map((project) => `
-      <button class="project-card ${project.id === selectedProject ? 'is-selected' : ''}" type="button" data-project-id="${project.id}" data-status="${project.status}">
+      <button class="project-card ${project.id === selectedProject ? 'is-selected' : ''}" type="button" data-project-id="${project.id}" data-status="${project.status}" aria-current="${project.id === selectedProject}">
         <span class="status" aria-hidden="true"></span>
         <span><strong>${project.name}</strong><small>${project.location} ｜ ${statusLabel[project.status]}</small></span>
         <span class="arrow" aria-hidden="true">↗</span>
@@ -595,6 +604,7 @@
     projectMap.setMinZoom(limits.minZoom);
     projectMap.setMaxZoom(limits.maxZoom);
     if (mapReady && selectedProject) focusProject(selectedProject, true);
+    requestAnimationFrame(() => projectMap.resize());
   });
 
   filterButtons.forEach((button) => {
